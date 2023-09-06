@@ -3,7 +3,7 @@ image:
   ## Defaults to the release name
   name: quay.io/sparky-cicd/batman
   ## Tag that you want to build/deploy
-  tag: eafdf3a94b015c963d434e300515b431fbf3c513
+  tag: 21248fee552a55d18fb816d7b143b586df4dd49b
 ## Application/Deployment-specific values (For configuring Deployment, Service, Route, ConfigMap, etc)
 deploy:
   ## Number of pod replicas to deploy
@@ -68,7 +68,7 @@ deploy:
     - name: IMAGE
       value: quay.io/sparky-cicd/batman
     - name: TAG
-      value: eafdf3a94b015c963d434e300515b431fbf3c513
+      value: 21248fee552a55d18fb816d7b143b586df4dd49b
   ## Freeform envFrom. More information: https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#configure-all-key-value-pairs-in-a-configmap-as-container-environment-variables
   envFrom:
   #  - configMapRef:
