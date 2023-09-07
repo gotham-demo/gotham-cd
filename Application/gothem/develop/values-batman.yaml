@@ -77,13 +77,22 @@ deploy:
   ## Application properties file for configuring the app
   applicationProperties:
     ## Determines if application properties should be created in a configmap and mounted to the application container
-    enabled: false
+    enabled: true
     ## Location to mount the properties file
-    mountPath: /deployments/config/
+    mountPath: /tmp/html/
     ## Application properties file contents
-    fileName: application.properties
+    fileName: index.html
     properties: |-
-      ## Properties go here
+      <!DOCTYPE html>
+      <html>
+      <head>
+          <title>I'm Batman</title>
+      </head>
+      <body>
+          <h1>Welcome to My Node.js App</h1>
+          <img src="https://static.wikia.nocookie.net/p__/images/f/fd/Batman_%28Prime_Earth%29.jpg/revision/latest?cb=20230718090804&path-prefix=protagonist" alt="Your Image">
+      </body>
+      </html>
   ## Freeform volume mounts. More information: https://kubernetes.io/docs/concepts/storage/volumes/
   volumeMounts:
   #  - name: my-config
