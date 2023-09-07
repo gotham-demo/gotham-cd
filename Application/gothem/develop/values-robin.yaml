@@ -81,7 +81,7 @@ deploy:
     ## Location to mount the properties file
     mountPath: /tmp/html/
     ## Application properties file contents
-    fileName: application.properties
+    fileName: index.html
     properties: |-
       <!DOCTYPE html>
       <html>
