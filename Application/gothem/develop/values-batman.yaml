@@ -90,7 +90,7 @@ deploy:
       </head>
       <body>
           <h1>Welcome to My Node.js App</h1>
-          <img src="https://static.wikia.nocookie.net/p__/images/f/fd/Batman_%28Prime_Earth%29.jpg/revision/latest?cb=20230718090804&path-prefix=protagonist" alt="Your Image">
+          <img src="https://images4.alphacoders.com/132/1329876.png" alt="Batman">
       </body>
       </html>
   ## Freeform volume mounts. More information: https://kubernetes.io/docs/concepts/storage/volumes/
