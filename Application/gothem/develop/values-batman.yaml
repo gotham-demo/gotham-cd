@@ -90,7 +90,7 @@ deploy:
       </head>
       <body>
           <h1>I'm Batman App</h1>
-          <img src="https://gitea-demo-gitea.apps-crc.testing/gothem/batman/raw/branch/main/src/img/1329876.png" alt="Batman">
+          <img src="http://gitea-http.gitea.svc/gothem/batman/raw/branch/main/src/img/1329876.png" alt="Batman">
       </body>
       </html>
   ## Freeform volume mounts. More information: https://kubernetes.io/docs/concepts/storage/volumes/
