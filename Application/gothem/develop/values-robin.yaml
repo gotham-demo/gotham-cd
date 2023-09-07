@@ -3,7 +3,7 @@ image:
   ## Defaults to the release name
   name: quay.io/gothem/robin
   ## Tag that you want to build/deploy
-  tag: aea34cd74e7a06cc45d77cd7dc0aeac3430b26aa
+  tag: 7ed2d22ed7d211d9b3074b86a33ef5a5bdc16338
 ## Application/Deployment-specific values (For configuring Deployment, Service, Route, ConfigMap, etc)
 deploy:
   ## Number of pod replicas to deploy
@@ -68,7 +68,7 @@ deploy:
     - name: IMAGE
       value: quay.io/gothem/robin
     - name: TAG
-      value: aea34cd74e7a06cc45d77cd7dc0aeac3430b26aa
+      value: 7ed2d22ed7d211d9b3074b86a33ef5a5bdc16338
   ## Freeform envFrom. More information: https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#configure-all-key-value-pairs-in-a-configmap-as-container-environment-variables
   envFrom:
   #  - configMapRef:
