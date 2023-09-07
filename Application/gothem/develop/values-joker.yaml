@@ -108,7 +108,7 @@ deploy:
   #    image: registry.redhat.io/ubi8/ubi-minimal
 global:
   ## Override the release name
-  nameOverride: sparky-cicd
+  nameOverride: gothem
   serviceName: joker
   namespace: demo-develop
   runTime: dotnet

@@ -1,0 +1,107 @@
+﻿apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  creationTimestamp: '2023-07-05T11:41:01Z'
+  generation: 11
+  managedFields:
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          .: {}
+          'f:conditions': {}
+      manager: argocd-applicationset-controller
+      operation: Update
+      subresource: status
+      time: '2023-09-06T19:19:32Z'
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:spec':
+          .: {}
+          'f:generators': {}
+          'f:template':
+            .: {}
+            'f:metadata':
+              .: {}
+              'f:name': {}
+            'f:spec':
+              .: {}
+              'f:destination':
+                .: {}
+                'f:namespace': {}
+                'f:server': {}
+              'f:project': {}
+              'f:source':
+                .: {}
+                'f:helm':
+                  .: {}
+                  'f:valueFiles': {}
+                'f:path': {}
+                'f:repoURL': {}
+                'f:targetRevision': {}
+              'f:syncPolicy':
+                .: {}
+                'f:automated':
+                  .: {}
+                  'f:prune': {}
+                  'f:selfHeal': {}
+                'f:syncOptions': {}
+      manager: Mozilla
+      operation: Update
+      time: '2023-09-06T21:08:40Z'
+  name: demo-cd
+  namespace: openshift-gitops
+  resourceVersion: '4154741'
+  uid: 5ea8f373-1fd5-4c36-a084-c1651af3393b
+spec:
+  generators:
+    - git:
+        files:
+          - path: Application/*/develop/values-*.yaml
+        repoURL: 'http://gitea-http.gitea.svc/user1/user1-cd.git'
+        revision: main
+    - git:
+        files:
+          - path: Application/*/develop/values-*.yaml
+        repoURL: 'http://gitea-http.gitea.svc/sparky-cicd/sparky-cicd-cd.git'
+        revision: main
+  template:
+    metadata:
+      name: '{{global.nameOverride}}-{{global.serviceName}}-{{path[2]}}'
+    spec:
+      destination:
+        namespace: '{{global.nameOverride}}-{{path[2]}}'
+        server: 'https://kubernetes.default.svc'
+      project: default
+      source:
+        helm:
+          valueFiles:
+            - '{{path[1]}}/{{path[2]}}/{{path.filename}}'
+        path: '{{path[0]}}'
+        repoURL: >-
+          http://gitea-http.gitea.svc/{{global.nameOverride}}/{{global.nameOverride}}-cd.git
+        targetRevision: main
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
+status:
+  conditions:
+    - lastTransitionTime: '2023-09-06T19:19:32Z'
+      message: Successfully generated parameters for all Applications
+      reason: ApplicationSetUpToDate
+      status: 'False'
+      type: ErrorOccurred
+    - lastTransitionTime: '2023-09-06T19:19:32Z'
+      message: Successfully generated parameters for all Applications
+      reason: ParametersGenerated
+      status: 'True'
+      type: ParametersGenerated
+    - lastTransitionTime: '2023-09-06T19:19:32Z'
+      message: ApplicationSet up to date
+      reason: ApplicationSetUpToDate
+      status: 'True'
+      type: ResourcesUpToDate

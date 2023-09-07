@@ -1,9 +1,9 @@
 image:
   ## Name of the image you want to build/deploy
   ## Defaults to the release name
-  name: quay.io/sparky-cicd/batman
+  name: quay.io/sparky-cicd/robin
   ## Tag that you want to build/deploy
-  tag: 21248fee552a55d18fb816d7b143b586df4dd49b
+  tag: f6a91fb1226c6161aba623c1996928f31756673c
 ## Application/Deployment-specific values (For configuring Deployment, Service, Route, ConfigMap, etc)
 deploy:
   ## Number of pod replicas to deploy
@@ -27,7 +27,7 @@ deploy:
       protocol: TCP
   ## For creating a Route, allowing your application to be accessed from outside the OCP cluster
   route:
-    enabled: false
+    enabled: true
     targetPort: http
     ## More information: https://docs.openshift.com/container-platform/4.6/networking/routes/secured-routes.html
     tls:
@@ -66,9 +66,9 @@ deploy:
   ## Freeform env. More information: https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/
   env:
     - name: IMAGE
-      value: quay.io/sparky-cicd/batman
+      value: quay.io/sparky-cicd/robin
     - name: TAG
-      value: 21248fee552a55d18fb816d7b143b586df4dd49b
+      value: f6a91fb1226c6161aba623c1996928f31756673c
   ## Freeform envFrom. More information: https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#configure-all-key-value-pairs-in-a-configmap-as-container-environment-variables
   envFrom:
   #  - configMapRef:
@@ -108,7 +108,7 @@ deploy:
   #    image: registry.redhat.io/ubi8/ubi-minimal
 global:
   ## Override the release name
-  nameOverride: sparky-cicd
-  serviceName: batman
-  runTime: nodejs
+  nameOverride: gothem
+  serviceName: robin
+  runTime: nginx
   namespace: demo-develop
