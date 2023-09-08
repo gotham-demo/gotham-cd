@@ -37,20 +37,4 @@ spec:
           selfHeal: true
         syncOptions:
           - CreateNamespace=true
-status:
-  conditions:
-    - lastTransitionTime: '2023-09-06T19:19:32Z'
-      message: Successfully generated parameters for all Applications
-      reason: ApplicationSetUpToDate
-      status: 'False'
-      type: ErrorOccurred
-    - lastTransitionTime: '2023-09-06T19:19:32Z'
-      message: Successfully generated parameters for all Applications
-      reason: ParametersGenerated
-      status: 'True'
-      type: ParametersGenerated
-    - lastTransitionTime: '2023-09-06T19:19:32Z'
-      message: ApplicationSet up to date
-      reason: ApplicationSetUpToDate
-      status: 'True'
-      type: ResourcesUpToDate
+
