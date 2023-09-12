@@ -89,7 +89,7 @@ deploy:
           <title>I'm Batman</title>
       </head>
       <body>
-          <h1>I'm Batman App</h1>
+          <h1>I'm Riddler App</h1>
           <img src="image/Riddler-DC-Comics-Artjpg" alt="Riddler">
       </body>
       </html>
