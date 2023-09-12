@@ -13,7 +13,7 @@ spec:
     - git:
         files:
           - path: Application/*/develop/values-*.yaml
-        repoURL: 'http://gitea-http.gitea.svc/gothem/gothem-cd.git'
+        repoURL: 'http://gitea-http.gitea.svc/gotham/gotham-cd.git'
         revision: main
   template:
     metadata:

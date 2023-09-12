@@ -1,9 +1,9 @@
 image:
   ## Name of the image you want to build/deploy
   ## Defaults to the release name
-  name: quay.io/gothem/joker
+  name: quay.io/gotham/robin
   ## Tag that you want to build/deploy
-  tag: f5a5cf3
+  tag: 62b2726
 ## Application/Deployment-specific values (For configuring Deployment, Service, Route, ConfigMap, etc)
 deploy:
   ## Number of pod replicas to deploy
@@ -27,11 +27,11 @@ deploy:
       protocol: TCP
   ## For creating a Route, allowing your application to be accessed from outside the OCP cluster
   route:
-    enabled: false
+    enabled: true
     targetPort: http
     ## More information: https://docs.openshift.com/container-platform/4.6/networking/routes/secured-routes.html
     tls:
-      enabled: true
+      enabled: false
       termination: edge
       insecureEdgeTerminationPolicy: Redirect
       ## IMPORTANT: Do not check 'key' into git!
@@ -66,9 +66,9 @@ deploy:
   ## Freeform env. More information: https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/
   env:
     - name: IMAGE
-      value: quay.io/gothem/joker
+      value: quay.io/gotham/robin
     - name: TAG
-      value: 'f5a5cf3'
+      value: 62b2726
   ## Freeform envFrom. More information: https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#configure-all-key-value-pairs-in-a-configmap-as-container-environment-variables
   envFrom:
   #  - configMapRef:
@@ -86,11 +86,11 @@ deploy:
       <!DOCTYPE html>
       <html>
       <head>
-          <title>I'm Joker</title>
+          <title>I'm Robin</title>
       </head>
       <body>
-          <h1>I'm Joker App</h1>
-          <img src="image/60578.jpg" alt="Joker">
+          <h1>I'm Robin App</h1>
+          <img src="image/1297490.jpg" alt="Robin">
       </body>
       </html>
   ## Freeform volume mounts. More information: https://kubernetes.io/docs/concepts/storage/volumes/
@@ -117,7 +117,7 @@ deploy:
   #    image: registry.redhat.io/ubi8/ubi-minimal
 global:
   ## Override the release name
-  nameOverride: gothem
-  serviceName: joker
+  nameOverride: gotham
+  serviceName: robin
+  runTime: nginx
   namespace: demo-develop
-  runTime: dotnet

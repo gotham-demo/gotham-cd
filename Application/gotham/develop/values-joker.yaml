@@ -1,9 +1,9 @@
 image:
   ## Name of the image you want to build/deploy
   ## Defaults to the release name
-  name: quay.io/gothem/batman
+  name: quay.io/gotham/joker
   ## Tag that you want to build/deploy
-  tag: e6fcc7ce62aecf154887e695c04c41a4bd50dbce
+  tag: f5a5cf3
 ## Application/Deployment-specific values (For configuring Deployment, Service, Route, ConfigMap, etc)
 deploy:
   ## Number of pod replicas to deploy
@@ -31,7 +31,7 @@ deploy:
     targetPort: http
     ## More information: https://docs.openshift.com/container-platform/4.6/networking/routes/secured-routes.html
     tls:
-      enabled: false
+      enabled: true
       termination: edge
       insecureEdgeTerminationPolicy: Redirect
       ## IMPORTANT: Do not check 'key' into git!
@@ -66,9 +66,9 @@ deploy:
   ## Freeform env. More information: https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/
   env:
     - name: IMAGE
-      value: quay.io/gothem/batman
+      value: quay.io/gotham/joker
     - name: TAG
-      value: e6fcc7ce62aecf154887e695c04c41a4bd50dbce
+      value: 'f5a5cf3'
   ## Freeform envFrom. More information: https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#configure-all-key-value-pairs-in-a-configmap-as-container-environment-variables
   envFrom:
   #  - configMapRef:
@@ -86,11 +86,11 @@ deploy:
       <!DOCTYPE html>
       <html>
       <head>
-          <title>I'm Batman</title>
+          <title>I'm Joker</title>
       </head>
       <body>
-          <h1>I'm Batman App</h1>
-          <img src="image/1329876.png" alt="Batman">
+          <h1>I'm Joker App</h1>
+          <img src="image/60578.jpg" alt="Joker">
       </body>
       </html>
   ## Freeform volume mounts. More information: https://kubernetes.io/docs/concepts/storage/volumes/
@@ -117,7 +117,7 @@ deploy:
   #    image: registry.redhat.io/ubi8/ubi-minimal
 global:
   ## Override the release name
-  nameOverride: gothem
-  serviceName: batman
-  runTime: nodejs
+  nameOverride: gotham
+  serviceName: joker
   namespace: demo-develop
+  runTime: dotnet
