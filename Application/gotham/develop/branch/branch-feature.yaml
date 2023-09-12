@@ -1,5 +1,5 @@
 branch: feature
 imageName: quay.io/gotham/batman
-imageTag: cd63cb6
+imageTag: 483c30e
 appName: batman
 userName: gotham
