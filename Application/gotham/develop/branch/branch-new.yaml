@@ -1,5 +1,5 @@
 branch: new
 imageName: quay.io/gotham/robin
-imageTag: e78b3fa
+imageTag: 591b7af
 appName: robin
 userName: gotham
