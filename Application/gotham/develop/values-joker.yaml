@@ -96,7 +96,7 @@ deploy:
 
           <!-- Button to link to /test2 -->
           <a href="/test2" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none;">Test 2</a>
-
+          <br>
           <img src="image/60578.jpg" alt="Joker">
       </body>
       </html>
