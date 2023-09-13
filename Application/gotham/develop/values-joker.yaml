@@ -89,7 +89,7 @@ deploy:
           <title>I'm Joker</title>
       </head>
       <body>
-          <h1>I'm Joker App</h1>
+          <h1>I'm Joker App v1.1</h1>
 
           <!-- Button to link to /test1 -->
           <a href="/test1" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none; margin-right: 10px;">Test 1</a>
