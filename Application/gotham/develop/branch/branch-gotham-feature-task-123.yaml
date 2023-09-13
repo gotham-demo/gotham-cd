@@ -1,5 +1,5 @@
 branch: feature-task-123
 imageName: quay.io/gotham/batman
-imageTag: e274292
+imageTag: f163e02
 appName: batman
 userName: gotham
