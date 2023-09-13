@@ -118,6 +118,6 @@ deploy:
 global:
   ## Override the release name
   nameOverride: gotham
-  serviceName: batman
+  serviceName: gotham
   runTime: nodejs
   namespace: demo-develop
