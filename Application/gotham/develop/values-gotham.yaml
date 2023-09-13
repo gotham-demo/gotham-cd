@@ -86,10 +86,24 @@ deploy:
       <!DOCTYPE html>
       <html>
       <head>
-          <title>I'm Batman</title>
+          <title>I'm Gotham</title>
       </head>
       <body>
-          <h1>I'm Batman App From gotham</h1>
+          <h1>I'm Gotham App</h1>
+          <!-- Button to link to /test1 -->
+          <a href="/test1" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none; margin-right: 10px;">Test 1</a>
+
+          <!-- Button to link to /test2 -->
+          <a href="/test2" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none;">Test 2</a>
+          <br>
+          <hr>
+          <!-- Button to link to /test1 -->
+          <a href="https://batman-gotham-demo-develop.apps-crc.testing" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none; margin-right: 10px;">Batman</a>
+          <!-- Button to link to /test2 -->
+          <a href="https://robin-gotham-demo-develop.apps-crc.testing" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none;">Robin</a>
+          <a href="https://joker-gotham-demo-develop.apps-crc.testing/" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none;">joker</a>
+          <hr>
+          <br>
           <img src="image/Gotham_Logo.jpg" alt="Gotham">
       </body>
       </html>
