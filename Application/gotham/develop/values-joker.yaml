@@ -91,6 +91,13 @@ deploy:
       <body>
           <h1>I'm Joker App</h1>
           <img src="image/60578.jpg" alt="Joker">
+          
+          <!-- Button to link to /test1 -->
+          <a href="/test1" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none; margin-right: 10px;">Test 1</a>
+
+          <!-- Button to link to /test2 -->
+          <a href="/test2" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none;">Test 2</a>
+
       </body>
       </html>
   ## Freeform volume mounts. More information: https://kubernetes.io/docs/concepts/storage/volumes/
