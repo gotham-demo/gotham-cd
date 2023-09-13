@@ -1,5 +1,5 @@
 branch: test
 imageName: quay.io/gotham/batman
-imageTag: b103ef1
+imageTag: c529cc0
 appName: batman
 userName: gotham
