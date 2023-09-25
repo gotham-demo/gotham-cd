@@ -1,2 +1,2 @@
-# sparky-cicd-cd
+# Gotham GitOps Repo
 
