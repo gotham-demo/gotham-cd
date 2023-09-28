@@ -131,7 +131,7 @@ deploy:
   #    image: registry.redhat.io/ubi8/ubi-minimal
 global:
   ## Override the release name
-  nameOverride: gotham
+  nameOverride: gotham-gh
   serviceName: joker
   namespace: demo-develop
   runTime: dotnet
