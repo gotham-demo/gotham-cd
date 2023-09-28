@@ -117,7 +117,7 @@ deploy:
   #    image: registry.redhat.io/ubi8/ubi-minimal
 global:
   ## Override the release name
-  nameOverride: gotham-gh
-  serviceName: robin
+  nameOverride: gotham
+  serviceName: robin-gh
   runTime: nginx
   namespace: demo-develop

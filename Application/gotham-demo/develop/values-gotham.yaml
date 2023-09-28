@@ -129,7 +129,7 @@ deploy:
   #    image: registry.redhat.io/ubi8/ubi-minimal
 global:
   ## Override the release name
-  nameOverride: gotham-gh
-  serviceName: gotham
+  nameOverride: gotham
+  serviceName: gotham-gh
   runTime: nodejs
   namespace: demo-develop
