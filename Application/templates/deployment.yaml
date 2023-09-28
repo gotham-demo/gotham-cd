@@ -24,7 +24,7 @@ spec:
 {{- end }}
       containers:
         - name: {{ .Values.global.serviceName }}
-          image: {{ include "app.imageName" . }}
+          image: '{{ include "app.imageName" . }}'
           ports:
 {{- range .Values.deploy.ports }}
             - name: {{ .name }}
