@@ -133,5 +133,5 @@ global:
   ## Override the release name
   nameOverride: gotham
   serviceName: joker-gh
-  namespace: demo-develop
+  namespace: demo-prod
   runTime: dotnet

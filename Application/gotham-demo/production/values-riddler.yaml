@@ -120,4 +120,4 @@ global:
   nameOverride: gotham
   serviceName: riddler-gh
   runTime: nodejs
-  namespace: demo-develop
+  namespace: demo-prod

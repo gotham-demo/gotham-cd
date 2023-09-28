@@ -132,4 +132,4 @@ global:
   nameOverride: gotham
   serviceName: gotham-gh
   runTime: nodejs
-  namespace: demo-develop
+  namespace: demo-prod
