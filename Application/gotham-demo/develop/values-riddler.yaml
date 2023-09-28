@@ -3,7 +3,7 @@ image:
   ## Defaults to the release name
   name: quay.io/gotham/riddler
   ## Tag that you want to build/deploy
-  tag: quay.io/gotham/riddler:1e2cc8a
+  tag: 1e2cc8a
 ## Application/Deployment-specific values (For configuring Deployment, Service, Route, ConfigMap, etc)
 deploy:
   ## Number of pod replicas to deploy
