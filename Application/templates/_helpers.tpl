@@ -18,7 +18,7 @@ app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end -}}
 
 {{- define "app.imageName" -}}
-{{ default (include "app.name" .) .Values.image.name }}:{{ .Values.image.tag }}
+{{ default (include "app.name" .) .Values.image.name }}:{{ .Values.image.tag | toStrings }}
 {{- end -}}
 
 {{- define "host.name" -}}
