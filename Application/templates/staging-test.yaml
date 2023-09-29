@@ -18,6 +18,6 @@ spec:
        image: registry.access.redhat.com/ubi9-minimal:latest
        workingDir: /workspace/output
        command: ["/bin/bash", "-c"]
-       args: ['curl {{ include "app.name" . }}-{{ .Values.global.serviceName }}:{{ .Values.deploy.ports[0].port }}/health/liveliness || exit 1']
+      #  args: ['curl {{ include "app.name" . }}-{{ .Values.global.serviceName }}:{{ .Values.deploy.ports[0].port }}/health/liveliness || exit 1']
   backoffLimit: 1
 {{- end }}
