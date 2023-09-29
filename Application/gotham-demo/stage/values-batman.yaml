@@ -3,7 +3,7 @@ image:
   ## Defaults to the release name
   name: quay.io/gotham/batman
   ## Tag that you want to build/deploy
-  tag: 4e1b627
+  tag: a47c050
 ## Application/Deployment-specific values (For configuring Deployment, Service, Route, ConfigMap, etc)
 deploy:
   ## Number of pod replicas to deploy
