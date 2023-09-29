@@ -21,7 +21,7 @@ jobs:
       id: read_image_tag
       run: |
         BRANCH_NAME="${{ steps.branch_name.outputs.branch }}"
-        VALUES_FILE="Application/gothem-demo/develop/values-${BRANCH_NAME}.yaml"
+        VALUES_FILE="Application/gotham-demo/develop/values-${BRANCH_NAME}.yaml"
 
         if [ -f "$VALUES_FILE" ]; then
           IMAGE_TAG=$(cat "$VALUES_FILE" | jq -r .image.tag)
@@ -36,7 +36,7 @@ jobs:
       run: |
         BRANCH_NAME="${{ steps.branch_name.outputs.branch }}"
         IMAGE_TAG="${{ steps.read_image_tag.outputs.image_tag }}"
-        FILE_PATH="Application/gothem-demo/develop/branch/${BRANCH_NAME}.yaml"
+        FILE_PATH="Application/gotham-demo/develop/branch/${BRANCH_NAME}.yaml"
 
         echo "branchName: $BRANCH_NAME" > $FILE_PATH
         echo "ImageTag: $IMAGE_TAG" >> $FILE_PATH
