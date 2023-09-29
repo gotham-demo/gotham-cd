@@ -24,7 +24,7 @@ jobs:
         VALUES_FILE="Application/gotham-demo/develop/values-${BRANCH_NAME}.yaml"
 
         if [ -f "$VALUES_FILE" ]; then
-          IMAGE_TAG=$(yaml-patch read "$VALUES_FILE" 'image.tag')
+          IMAGE_TAG=$(yq r "$VALUES_FILE" 'image.tag')
           echo "::set-output name=image_tag::$IMAGE_TAG"
         else
           echo "values.yaml not found for branch $BRANCH_NAME"
