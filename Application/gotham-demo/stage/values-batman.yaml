@@ -121,4 +121,4 @@ global:
   serviceName: batman-gh
   runTime: nodejs
   namespace: demo-stage
-  test: false
+  # test: false
