@@ -2,8 +2,8 @@ name: Create Branch File
 
 on:
   push:
-    branches:
-      - '*'
+    branches-ignore:
+      - main
 
 jobs:
   create_file:
