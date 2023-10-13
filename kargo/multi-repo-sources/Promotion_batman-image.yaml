@@ -1,6 +1,0 @@
-apiVersion: kargo.akuity.io/v1alpha1
-kind: PromotionPolicy
-metadata:
-  name: promote-batman-image
-stage: batman-image
-enableAutoPromotion: true

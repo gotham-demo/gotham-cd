@@ -3,7 +3,7 @@ image:
   ## Defaults to the release name
   name: quay.io/gotham/joker
   ## Tag that you want to build/deploy
-  tag: 2a80b8d
+  tag: bfc4dc2
 ## Application/Deployment-specific values (For configuring Deployment, Service, Route, ConfigMap, etc)
 deploy:
   ## Number of pod replicas to deploy
@@ -89,20 +89,9 @@ deploy:
           <title>I'm Joker</title>
       </head>
       <body>
-          <h1>I'm Joker App v1.1</h1>
-
-          <!-- Button to link to /test1 -->
-          <a href="/test1" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none; margin-right: 10px;">Test 1</a>
-
-          <!-- Button to link to /test2 -->
-          <a href="/test2" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none;">Test 2</a>
+          <h1>I'm Joker App 🥳!!</h1>
           <br>
-          <hr>
-          <!-- Button to link to /test1 -->
-          <a href="https://batman-gotham-demo-develop.apps-crc.testing" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none; margin-right: 10px;">Batman</a>
-          <!-- Button to link to /test2 -->
-          <a href="https://robin-gotham-demo-develop.apps-crc.testing" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none;">Robin</a>
-          <hr>
+          <img src="image/kargo-logo.png" alt="kargo">
           <br>
           <img src="image/60578.jpg" alt="Joker">
       </body>
