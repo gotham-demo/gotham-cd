@@ -15,6 +15,9 @@ spec:
         updateStrategy: Latest
       - repoURL: quay.io/gotham/joker
         updateStrategy: Latest
+      git:
+      - repoURL: https://github.com/gotham-demo/gotham-cd.git
+        branch: main
   promotionMechanisms:
     gitRepoUpdates:
     - repoURL: https://github.com/gotham-demo/gotham-cd.git #https://gitea-http.gitea.svc/gotham/gotham-cd.git
