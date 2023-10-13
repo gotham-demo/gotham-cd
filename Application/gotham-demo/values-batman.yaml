@@ -91,9 +91,9 @@ deploy:
       <body>
           <h1>I'm Batman App</h1>
           <br>
-          <img src="image/1329876.png" alt="Batman">
+          <img src="image/kargo-logo.png" alt="kargo">
           <br>
-          <img src="image/kargo-logo.png" alt="Batman">
+          <img src="image/1329876.png" alt="Batman">
       </body>
       </html>
   ## Freeform volume mounts. More information: https://kubernetes.io/docs/concepts/storage/volumes/
