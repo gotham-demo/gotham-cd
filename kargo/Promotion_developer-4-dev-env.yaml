@@ -1,9 +1,0 @@
-apiVersion: kargo.akuity.io/v1alpha1
-kind: PromotionPolicy
-metadata:
-  name: developer-4-dev-env
-  namespace: gotham-kargo
-  annotations:
-    argocd.argoproj.io/sync-wave: "17"
-stage: developer-4-dev-env
-enableAutoPromotion: true
