@@ -24,6 +24,9 @@ spec:
         helm:
           valueFiles:
             - '{{path[1]}}/{{path.filename}}'
+          parameters:
+            - name: global.namespace
+              value: prod-west
         path: '{{path[0]}}'
         repoURL: 'https://github.com/gotham-demo/{{global.nameOverride}}-cd.git'
         targetRevision: Deploy/prod-west
