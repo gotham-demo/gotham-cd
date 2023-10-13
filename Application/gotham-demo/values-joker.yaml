@@ -89,7 +89,9 @@ deploy:
           <title>I'm Joker</title>
       </head>
       <body>
-          <h1>I'm Joker App v1.1</h1>
+          <h1>I'm Joker App 🥳!!</h1>
+          <br>
+          <img src="image/kargo-logo.png" alt="kargo">
           <br>
           <img src="image/60578.jpg" alt="Joker">
       </body>
