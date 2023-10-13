@@ -17,7 +17,7 @@ spec:
       name: '{{global.nameOverride}}-{{global.serviceName}}-security'
     spec:
       destination:
-        namespace: '{{global.nameOverride}}-{{path[2]}}'
+        namespace: '{{global.nameOverride}}-security'
         server: 'https://kubernetes.default.svc'
       project: gotham-gh
       source:
