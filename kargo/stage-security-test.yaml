@@ -1,10 +1,10 @@
 apiVersion: kargo.akuity.io/v1alpha1
 kind: Stage
 metadata:
-  name: develop
+  name: security-testing
   namespace: gotham-kargo
   annotations:
-    kargo.akuity.io/color: lime
+    kargo.akuity.io/color: blue
 spec:
   subscriptions:
     upstreamStages:
