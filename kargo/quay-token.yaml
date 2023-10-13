@@ -1,0 +1,16 @@
+kind: Secret
+apiVersion: v1
+metadata:
+  name: elfred-quay-kargo
+  namespace: gotham-kargo
+  labels:
+    kargo.akuity.io/secret-type: repo-creds
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+data:
+  password: >-
+    VjdFOUtZUlhLVk0yQ0lVUFoxWFJIMlZJNUdXUFFIQzY4T0hWVkpOU0hMSUtJUlVYNVhINVBMTVozQkJTS01JMQ==
+  type: aW1hZ2U=
+  url: cXVheS5pbw==
+  username: Z290aGFtK2VsZnJlZA==
+type: Opaque

@@ -1,0 +1,26 @@
+apiVersion: kargo.akuity.io/v1alpha1
+kind: Stage
+metadata:
+  name: ready-for-develop
+  namespace: gotham-kargo
+  annotations:
+    kargo.akuity.io/color: green
+    argocd.argoproj.io/sync-wave: "15"
+spec:
+  subscriptions:
+    repos:
+      images:
+      - repoURL: quay.io/gotham/batman
+        updateStrategy: Latest
+      - repoURL: quay.io/gotham/robin
+        updateStrategy: Latest
+      - repoURL: quay.io/gotham/joker
+        updateStrategy: Latest
+      - repoURL: quay.io/gotham/riddler
+        updateStrategy: Latest
+      - repoURL: quay.io/gotham/gotham
+        updateStrategy: Latest
+  promotionMechanisms:
+    gitRepoUpdates:
+    - repoURL: https://github.com/gotham-demo/gotham-cd.git #https://gitea-http.gitea.svc/gotham/gotham-cd.git
+      writeBranch: empty # Writing to stage-specific branch prevents the formation of a loop

@@ -1,0 +1,9 @@
+apiVersion: kargo.akuity.io/v1alpha1
+kind: PromotionPolicy
+metadata:
+  name: get-a-new-freight
+  namespace: gotham-kargo
+  annotations:
+    argocd.argoproj.io/sync-wave: "17"
+stage: ready-for-develop
+enableAutoPromotion: true

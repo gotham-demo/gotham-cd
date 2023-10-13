@@ -1,0 +1,28 @@
+apiVersion: kargo.akuity.io/v1alpha1
+kind: Stage
+metadata:
+  name: developer-5-dev-env
+  namespace: gotham-kargo
+  annotations:
+    kargo.akuity.io/color: pink
+    argocd.argoproj.io/sync-wave: "10"
+spec:
+  subscriptions:
+    repos:
+      images:
+      - repoURL: quay.io/gotham/gotham
+        updateStrategy: Latest
+  promotionMechanisms:
+    gitRepoUpdates:
+    - repoURL: https://github.com/gotham-demo/gotham-cd.git
+      readBranch: main #https://gitea-http.gitea.svc/gotham/gotham-cd.git
+      writeBranch: developer-5-dev-env # Writing to stage-specific branch prevents the formation of a loop
+      helm:
+        images:
+        - image: quay.io/gotham/joker
+          valuesFilePath: Application/gotham-demo/develop/values-gotham.yaml
+          key: image.tag # Update this key to reference the new image version
+          value: 'Tag'
+    argoCDAppUpdates:
+    - appName: gotham-demo-developer-5-dev-env-gh
+      appNamespace: openshift-gitops
