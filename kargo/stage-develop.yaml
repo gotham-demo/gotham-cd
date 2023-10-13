@@ -7,16 +7,19 @@ metadata:
     kargo.akuity.io/color: lime
 spec:
   subscriptions:
-    upstreamStages:
-    - name: batman-image
-    - name: robin-image
-    - name: joker-image
-    - name: riddler-image
-    - name: gotham-image
+    repos:
+      images:
+      - repoURL: quay.io/gotham/batman
+        updateStrategy: Latest
+      - repoURL: quay.io/gotham/robin
+        updateStrategy: Latest
+      - repoURL: quay.io/gotham/joker
+        updateStrategy: Latest
   promotionMechanisms:
     gitRepoUpdates:
     - repoURL: https://github.com/gotham-demo/gotham-cd.git #https://gitea-http.gitea.svc/gotham/gotham-cd.git
-      writeBranch: main # Writing to stage-specific branch prevents the formation of a loop
+      readBranch: main
+      writeBranch: Deploy/develope # Writing to stage-specific branch prevents the formation of a loop
       helm:
         images:
         - image: quay.io/gotham/batman
@@ -31,22 +34,10 @@ spec:
           valuesFilePath: Application/gotham-demo/develop/values-robin.yaml
           key: image.tag # Update this key to reference the new image version
           value: 'Tag'
-        - image: quay.io/gotham/riddler
-          valuesFilePath: Application/gotham-demo/develop/values-riddler.yaml
-          key: image.tag # Update this key to reference the new image version
-          value: 'Tag'
-        - image: quay.io/gotham/gotham
-          valuesFilePath: Application/gotham-demo/develop/values-gotham.yaml
-          key: image.tag # Update this key to reference the new image version
-          value: 'Tag'
     argoCDAppUpdates:
     - appName: gotham-batman-gh-develop
       appNamespace: openshift-gitops
     - appName: gotham-joker-gh-develop
       appNamespace: openshift-gitops
     - appName: gotham-robin-gh-develop
-      appNamespace: openshift-gitops
-    - appName: gotham-riddler-gh-develop
-      appNamespace: openshift-gitops
-    - appName: gotham-gotham-gh-develop
       appNamespace: openshift-gitops
