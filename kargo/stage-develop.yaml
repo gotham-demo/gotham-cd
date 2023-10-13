@@ -26,15 +26,15 @@ spec:
       helm:
         images:
         - image: quay.io/gotham/batman
-          valuesFilePath: Application/gotham-demo/develop/values-batman.yaml
+          valuesFilePath: Application/gotham-demo/values-batman.yaml
           key: image.tag # Update this key to reference the new image version
           value: 'Tag'
         - image: quay.io/gotham/joker
-          valuesFilePath: Application/gotham-demo/develop/values-joker.yaml
+          valuesFilePath: Application/gotham-demo/values-joker.yaml
           key: image.tag # Update this key to reference the new image version
           value: 'Tag'
         - image: quay.io/gotham/robin
-          valuesFilePath: Application/gotham-demo/develop/values-robin.yaml
+          valuesFilePath: Application/gotham-demo/values-robin.yaml
           key: image.tag # Update this key to reference the new image version
           value: 'Tag'
     argoCDAppUpdates:
