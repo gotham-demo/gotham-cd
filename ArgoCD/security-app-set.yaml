@@ -28,9 +28,6 @@ spec:
         repoURL: 'https://github.com/gotham-demo/{{global.nameOverride}}-cd.git'
         targetRevision: Deploy/Security
       syncPolicy:
-        automated:
-          prune: true
-          selfHeal: true
         syncOptions:
           - CreateNamespace=true
 
