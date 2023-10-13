@@ -29,9 +29,9 @@ spec:
           key: image.tag # Update this key to reference the new image version
           value: 'Tag'
     argoCDAppUpdates:
-    - appName: gotham-batman-gh-test
+    - appName: gotham-batman-gh-code-test
       appNamespace: openshift-gitops
-    - appName: gotham-joker-gh-test
+    - appName: gotham-joker-gh-code-test
       appNamespace: openshift-gitops
-    - appName: gotham-robin-gh-test
+    - appName: gotham-robin-gh-code-test
       appNamespace: openshift-gitops
