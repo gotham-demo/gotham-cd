@@ -12,7 +12,7 @@ spec:
   promotionMechanisms:
     gitRepoUpdates:
     - repoURL: https://github.com/gotham-demo/gotham-cd.git #https://gitea-http.gitea.svc/gotham/gotham-cd.git
-      readBranch: Deploy/main
+      readBranch: main
       writeBranch: Deploy/prod-east # Writing to stage-specific branch prevents the formation of a loop
       helm:
         images:
