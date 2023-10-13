@@ -23,7 +23,7 @@ spec:
       source:
         helm:
           valueFiles:
-            - '{{path[1]}}/{{path[2]}}/{{path.filename}}'
+            - '{{path[1]}}/{{path.filename}}'
         path: '{{path[0]}}'
         repoURL: 'https://github.com/gotham-demo/{{global.nameOverride}}-cd.git'
         targetRevision: Deploy/Security
