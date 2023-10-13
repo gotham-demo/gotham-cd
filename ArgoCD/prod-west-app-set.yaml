@@ -1,36 +1,38 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: gotham-demo-satge-gh
+  name: gotham-demo-prod-west-gh
   namespace: openshift-gitops
 spec:
   generators:
     - git:
         files:
-          - path: Application/*/stage/values-*.yaml
+          - path: Application/gotham-demo/values-*.yaml
         repoURL: 'https://github.com/gotham-demo/gotham-cd.git'
         revision: main
   template:
     metadata:
       annotations:
-        kargo.akuity.io/authorized-stage: 'gotham-kargo:stageing'
-      name: '{{global.nameOverride}}-{{global.serviceName}}-{{path[2]}}'
+        kargo.akuity.io/authorized-stage: 'gotham-kargo:prod-west'
+      name: '{{global.nameOverride}}-{{global.serviceName}}-prod-west'
     spec:
       destination:
-        namespace: '{{global.nameOverride}}-{{path[2]}}'
+        namespace: '{{global.nameOverride}}-prod-west'
         server: 'https://kubernetes.default.svc'
       project: gotham-gh
       source:
         helm:
           valueFiles:
-            - '{{path[1]}}/{{path[2]}}/{{path.filename}}'
+            - '{{path[1]}}/{{path.filename}}'
         path: '{{path[0]}}'
         repoURL: 'https://github.com/gotham-demo/{{global.nameOverride}}-cd.git'
-        targetRevision: main
+        targetRevision: Deploy/prod-west
       syncPolicy:
-        automated:
-          prune: true
-          selfHeal: true
         syncOptions:
           - CreateNamespace=true
-
+        retry:
+          limit: 2
+          backoff:
+            duration: 5s
+            factor: 2
+            maxDuration: 3m0s
