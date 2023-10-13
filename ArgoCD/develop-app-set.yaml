@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: gotham-demo-gh
+  name: gotham-demo-devlop-gh
   namespace: openshift-gitops
 spec:
   generators:
