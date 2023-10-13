@@ -14,7 +14,7 @@ spec:
     metadata:
       annotations:
         kargo.akuity.io/authorized-stage: 'gotham-kargo:develop'
-      name: '{{global.nameOverride}}-{{global.serviceName}}-{{path[2]}}'
+      name: '{{global.nameOverride}}-{{global.serviceName}}-develop'
     spec:
       destination:
         namespace: '{{global.nameOverride}}-{{path[2]}}'
