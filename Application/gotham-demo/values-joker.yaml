@@ -3,7 +3,7 @@ image:
   ## Defaults to the release name
   name: quay.io/gotham/joker
   ## Tag that you want to build/deploy
-  tag: bfc4dc2
+  tag: f9750cc
 ## Application/Deployment-specific values (For configuring Deployment, Service, Route, ConfigMap, etc)
 deploy:
   ## Number of pod replicas to deploy
@@ -90,8 +90,6 @@ deploy:
       </head>
       <body>
           <h1>I'm Joker App 🥳!!</h1>
-          <br>
-          <img src="image/kargo-logo.png" alt="kargo">
           <br>
           <img src="image/60578.jpg" alt="Joker">
       </body>
