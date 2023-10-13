@@ -1,0 +1,44 @@
+﻿apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: demo-cd-branches
+  namespace: openshift-gitops
+spec:
+  generators:
+    - git:
+        files:
+          - path: Application/*/develop/branch/branch-*.yaml
+        repoURL: 'http://gitea-http.gitea.svc/gotham/gotham-cd.git'
+        revision: main
+  template:
+    metadata:
+      name: '{{userName}}-{{appName}}-{{path[2]}}-{{branch}}'
+    spec:
+      destination:
+        namespace: '{{appName}}-{{path[2]}}'
+        server: 'https://kubernetes.default.svc'
+      project: default
+      source:
+        helm:
+          valueFiles:
+            - '{{path[1]}}/{{path[2]}}/values-{{appName}}.yaml'
+          parameters:
+              - name: "global.nameOverride"
+                value: '{{{userName}}'
+              - name: "global.serviceName"
+                value: '{{appName}}-{{branch}}'
+              - name: "image.name"
+                value: '{{imageName}}'
+              - name: "image.tag"
+                value: '{{imageTag}}'
+        path: '{{path[0]}}'
+        repoURL: >-
+          http://gitea-http.gitea.svc/{{userName}}/{{userName}}-cd.git
+        targetRevision: main
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
+
