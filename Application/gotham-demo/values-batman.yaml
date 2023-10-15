@@ -3,7 +3,7 @@ image:
   ## Defaults to the release name
   name: quay.io/gotham/batman
   ## Tag that you want to build/deploy
-  tag: e83eb52
+  tag: de9964e
 ## Application/Deployment-specific values (For configuring Deployment, Service, Route, ConfigMap, etc)
 deploy:
   ## Number of pod replicas to deploy
@@ -90,6 +90,8 @@ deploy:
       </head>
       <body>
           <h1>I'm Batman App</h1>
+          <br>
+          <img src="image/kargo-logo.png" alt="kargo">
           <br>
           <img src="image/1329876.png" alt="Batman">
       </body>
