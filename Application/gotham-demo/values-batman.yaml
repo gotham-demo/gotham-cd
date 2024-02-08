@@ -126,6 +126,9 @@ deploy:
         value: "8081"
       - name: NAME
         value: "APP1"
+     volumeMounts:
+      - name: application-properties
+        mountPath: /tmp/html/
    - name: my-extra-container-2
      image: quay.io/gotham/batman:797cd83
      env:
@@ -133,6 +136,9 @@ deploy:
         value: "8082"
       - name: NAME
         value: "APP2"
+     volumeMounts:
+      - name: application-properties
+        mountPath: /tmp/html/
 global:
   ## Override the release name
   nameOverride: gotham
