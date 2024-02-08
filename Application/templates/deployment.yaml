@@ -82,6 +82,14 @@ spec:
             mountPath: {{ .mountPath | quote }}
           {{- end }}
         {{- end }}
+        {{- if .readinessProbe }}
+            readinessProbe:
+            {{- toYaml .readinessProbe | nindent 12 }}
+        {{- end }}
+        {{- if .readinessProbe }}
+            livenessProbe:
+            {{- toYaml .livenessProbe | nindent 12 }}
+        {{- end }}
         {{- if .args }}
           workingDir: {{ .workingDir }}
           args:

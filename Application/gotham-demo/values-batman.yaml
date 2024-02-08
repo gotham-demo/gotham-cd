@@ -126,6 +126,10 @@ deploy:
         cpu: 250m
         memory: 128Mi
      workingDir: /tmp
+     livenessProbe:
+       httpGet:
+         path: /health/liveliness
+         port: http1
      args:
      - "node"
      - "app.js"
@@ -140,6 +144,10 @@ deploy:
    - name: my-extra-container-2
      image: quay.io/gotham/batman:797cd83
      workingDir: /tmp
+     readinessProbe:
+       httpGet:
+         path: /health/readiness
+         port: http1
      args:
      - "node"
      - "app.js"
