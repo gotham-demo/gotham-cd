@@ -121,6 +121,9 @@ deploy:
   extraContainers:
    - name: my-extra-container-1
      image: quay.io/gotham/batman:797cd83
+     args:
+     - "node"
+     - "app.js"
      env:
       - name: PORT
         value: "8081"
@@ -131,6 +134,9 @@ deploy:
         mountPath: /tmp/html/
    - name: my-extra-container-2
      image: quay.io/gotham/batman:797cd83
+     args:
+     - "node"
+     - "app.js"
      env:
       - name: PORT
         value: "8082"

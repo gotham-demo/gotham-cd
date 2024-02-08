@@ -78,6 +78,12 @@ spec:
             mountPath: {{ .mountPath | quote }}
           {{- end }}
         {{- end }}
+        {{- if .args }}
+          args:
+          {{- range .args }}
+          - {{ . }}
+          {{- end }}
+        {{- end }}
       {{- end }}
 {{- end }}
       volumes:
