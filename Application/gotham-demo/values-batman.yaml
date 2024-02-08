@@ -121,6 +121,10 @@ deploy:
   extraContainers:
    - name: my-extra-container-1
      image: quay.io/gotham/batman:797cd83
+     resources:
+      requests:
+        cpu: 250m
+        memory: 128Mi
      args:
      - "node"
      - "app.js"

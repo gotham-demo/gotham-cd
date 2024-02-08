@@ -64,6 +64,10 @@ spec:
       {{- range .Values.deploy.extraContainers }}
         - name: {{ .name }}
           image: '{{ $imageName }}'
+      {{- if .resources }}
+          resources:
+            {{- toYaml .resources | nindent 12 }}
+      {{- end }}
         {{- if .env }}
           env:
           {{- range .env }}
