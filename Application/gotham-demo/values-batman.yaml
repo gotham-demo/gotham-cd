@@ -16,6 +16,12 @@ deploy:
   #  requests:
   #    cpu: 50m
   #    memory: 128Mi
+  strategy:
+  ## type can Be RollingUpdate Or Recreate
+    type: Recreate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
 
   ## Type of service to create. More information: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
   serviceType: ClusterIP

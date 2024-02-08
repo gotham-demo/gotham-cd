@@ -108,3 +108,9 @@ spec:
 {{- if .Values.deploy.volumes }}
         {{- tpl (toYaml .Values.deploy.volumes) . | nindent 8 }}
 {{- end }}
+  strategy:
+    type: {{ .Values.deploy.strategy.type }}
+    {{- if eq .Values.deploy.strategy.type "RollingUpdate" }}
+    rollingUpdate:
+      {{- tpl (toYaml .Values.deploy.strategy.rollingUpdate) . | nindent 6 }}
+    {{- end }}
