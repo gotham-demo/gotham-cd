@@ -81,7 +81,7 @@ spec:
         {{- if .args }}
           args:
           {{- range .args }}
-          - {{ . | squote }}
+          - {{ . | quote }}
           {{- end }}
         {{- end }}
       {{- end }}
