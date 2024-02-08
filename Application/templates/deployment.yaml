@@ -114,3 +114,4 @@ spec:
     rollingUpdate:
       {{- tpl (toYaml .Values.deploy.strategy.rollingUpdate) . | nindent 6 }}
     {{- end }}
+  revisionHistoryLimit: .Values.deploy.strategy.rollingUpdate.revisionHistoryLimit
