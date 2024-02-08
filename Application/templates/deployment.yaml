@@ -83,11 +83,11 @@ spec:
           {{- end }}
         {{- end }}
         {{- if .readinessProbe }}
-            readinessProbe:
+          readinessProbe:
             {{- toYaml .readinessProbe | nindent 12 }}
         {{- end }}
         {{- if .livenessProbe }}
-            livenessProbe:
+          livenessProbe:
             {{- toYaml .livenessProbe | nindent 12 }}
         {{- end }}
         {{- if .args }}
