@@ -139,11 +139,11 @@ deploy:
      livenessProbe:
        httpGet:
          path: /health/liveliness
-         port: http2
+         port: 8081
      readinessProbe:
        httpGet:
          path: /health/readiness
-         port: http3
+         port: 8081
      args:
      - "node"
      - "app.js"
@@ -161,11 +161,11 @@ deploy:
      readinessProbe:
        httpGet:
          path: /health/readiness
-         port: http3
+         port: 8082
      livenessProbe:
        httpGet:
          path: /health/liveliness
-         port: http2
+         port: 8082
      args:
      - "node"
      - "app.js"
