@@ -60,7 +60,16 @@ spec:
             {{- tpl (toYaml .Values.deploy.volumeMounts) . | nindent 12 }}
 {{- end }}
 {{- if .Values.deploy.extraContainers }}
-        {{- tpl (toYaml .Values.deploy.extraContainers) . | nindent 8 }}
+      {{- $imageName := include "app.imageName" }}
+      {{ - range .Values.deploy.extraContainers }}
+        - name: {{ .name }}
+          image: $imageName
+          {{- if .env }}
+          env:
+          {{- tpl (toYaml .env) . | nindent 12 }}
+          {{- end }}
+      {{- end }}
+        # {{- tpl (toYaml .Values.deploy.extraContainers) . | nindent 8 }}
 {{- end }}
       volumes:
 {{- if .Values.deploy.applicationProperties.enabled }}
