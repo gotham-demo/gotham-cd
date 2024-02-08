@@ -140,6 +140,10 @@ deploy:
        httpGet:
          path: /health/liveliness
          port: http2
+     readinessProbe:
+       httpGet:
+         path: /health/readiness
+         port: http3
      args:
      - "node"
      - "app.js"
@@ -158,6 +162,10 @@ deploy:
        httpGet:
          path: /health/readiness
          port: http3
+     livenessProbe:
+       httpGet:
+         path: /health/liveliness
+         port: http2
      args:
      - "node"
      - "app.js"
