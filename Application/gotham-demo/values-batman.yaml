@@ -119,15 +119,20 @@ deploy:
 
   ## Freeform containers: More information: https://kubernetes.io/docs/concepts/workloads/pods/#pod-templates
   extraContainers:
-   - name: my-extra-container
+   - name: my-extra-container-1
      image: quay.io/gotham/batman:797cd83
      env:
-      - name: IMAGE
-        value: quay.io/gotham/batman
-      - name: TAG
-        value: "4a7050d"
       - name: PORT
         value: "8081"
+      - name: NAME
+        value: "APP1"
+   - name: my-extra-container-2
+     image: quay.io/gotham/batman:797cd83
+     env:
+      - name: PORT
+        value: "8082"
+      - name: NAME
+        value: "APP2"
 global:
   ## Override the release name
   nameOverride: gotham
