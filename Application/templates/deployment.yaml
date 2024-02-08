@@ -83,6 +83,7 @@ spec:
           {{- end }}
         {{- end }}
         {{- if .args }}
+          workingDir: {{ .workingDir }}
           args:
           {{- range .args }}
           - {{ . | quote }}
