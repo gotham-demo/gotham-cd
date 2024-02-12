@@ -1,4 +1,5 @@
-{{ if eq .Values.deploy.Pod true }}
+{{- $isValueTrue := include "app.isTrue" .Values.someValue -}}
+{{- if $isValueTrue }}
 apiVersion: v1
 kind: Pod
 metadata:
