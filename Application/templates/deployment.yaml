@@ -20,7 +20,7 @@ spec:
         checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
       {{- end }}
     spec:
-      {{- if $isValueTrue }}
+      {{- if .Values.deploy.Pod }}
       restartPolicy: {{ .Values.deploy.restartPolicy }}
       {{- end }}
 {{- if .Values.deploy.initContainers }}
