@@ -61,7 +61,7 @@ spec:
 {{- end }}
 {{- if .Values.deploy.extraContainers }}
 {{- $imageName := printf "%s:%s" .Values.image.name .Values.image.tag -}}
-      {{- range .Values.deploy.extraContainers }}
+{{- range .Values.deploy.extraContainers }}
         - name: {{ .name }}
           image: '{{ $imageName }}'
       {{- if .resources }}
