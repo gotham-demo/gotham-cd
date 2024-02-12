@@ -4,7 +4,7 @@ kind: Pod
 metadata:
   name: batmen-pod-{{ randAlphaNum 4 | lower }}
   labels:
-    {{- include "app.labels" . | nindent 8 }}
+    {{- include "app.selectorLabels" . | nindent 6 }}
   {{- if .Values.deploy.applicationProperties.enabled }}
   annotations:
     checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
