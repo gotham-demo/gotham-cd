@@ -150,8 +150,7 @@ deploy:
      args:
      - "sh"
      - "-c"
-     - "sleep 20 && echo 'i am done'"
-
+     - "for i in {1..20}; do echo 'Count: $i'; sleep 1; done; echo 'Done'"
      env:
       - name: PORT
         value: "8081"
