@@ -18,6 +18,7 @@ spec:
         checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
       {{- end }}
     spec:
+    restartPolicy: {{ .Values.deploy.restartPolicy }}
 {{- if .Values.deploy.initContainers }}
       initContainers:
         {{- tpl (toYaml .Values.deploy.initContainers) . | nindent 8 }}
@@ -61,10 +62,8 @@ spec:
 {{- end }}
 {{- if .Values.deploy.extraContainers }}
 {{- $imageName := printf "%s:%s" .Values.image.name .Values.image.tag -}}
-{{- $restartPolicy := printf "%s"  .Values.deploy.restartPolicy }}
 {{- range .Values.deploy.extraContainers }}
         - name: {{ .name }}
-          restartPolicy: {{ $restartPolicy }}
           image: '{{ $imageName }}'
       {{- if .resources }}
           resources:
