@@ -6,7 +6,7 @@ image:
   tag: 797cd83
 ## Application/Deployment-specific values (For configuring Deployment, Service, Route, ConfigMap, etc)
 deploy:
-  Pod: true
+  Pod: false
   ## Number of pod replicas to deploy
   replicas: 1
   ## Freeform resources. More information: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
