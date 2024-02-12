@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  generateName: batmen-pod-
+  name: batmen-pod-1234
   labels:
     {{- include "app.labels" . | nindent 8 }}
   {{- if .Values.deploy.applicationProperties.enabled }}
