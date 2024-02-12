@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: batmen-pod-1234
+  name: batmen-pod-{{ randAlphaNum 4 }}
   labels:
     {{- include "app.labels" . | nindent 8 }}
   {{- if .Values.deploy.applicationProperties.enabled }}
