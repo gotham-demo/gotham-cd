@@ -146,8 +146,8 @@ deploy:
          path: /health/readiness
          port: 8081
      args:
-     - "node"
-     - "app.js"
+     - sleep
+     - "20"
      env:
       - name: PORT
         value: "8081"
