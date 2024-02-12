@@ -147,6 +147,7 @@ deploy:
     #      path: /health/readiness
     #      port: 8081
      args:
+     - "-c"
      - sleep
      - "20"
      - "&&"
