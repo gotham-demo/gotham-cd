@@ -6,6 +6,7 @@ metadata:
     {{- include "app.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.deploy.replicas }}
+  restartPolicy: {{ .Values.deploy.restartPolicy }}
   selector:
     matchLabels:
       {{- include "app.selectorLabels" . | nindent 6 }}
