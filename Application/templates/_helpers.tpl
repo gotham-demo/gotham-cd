@@ -28,15 +28,3 @@ app.kubernetes.io/instance: {{ .Release.Name }}
 {{- define "certificate.path" -}}
 "Certificates/{{ .Values.global.nameOverride }}/*"
 {{- end -}}
-
-{{- define "podDeployment" }}
-{{ default false .Values.deploy.Pod }}
-{{- end }}
-
-{{- define "app.isTrue" -}}
-{{- if .Values.deploy.Pod -}}
-true
-{{- else -}}
-false
-{{- end -}}
-{{- end -}}
