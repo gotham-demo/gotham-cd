@@ -17,7 +17,7 @@ deploy:
   #    cpu: 50m
   #    memory: 128Mi
   revisionHistoryLimit: 1
-  restartPolicy: Always
+  restartPolicy: Never
   strategy:
   ## type can Be RollingUpdate Or Recreate
     type: Recreate
