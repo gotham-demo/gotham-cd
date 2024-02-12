@@ -149,6 +149,7 @@ deploy:
      args:
      - sleep
      - "20"
+     - "&&"
      - "echo"
      - "i am done"
      env:
