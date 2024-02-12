@@ -147,12 +147,10 @@ deploy:
     #      path: /health/readiness
     #      port: 8081
      args:
+     - "sh"
      - "-c"
-     - sleep
-     - "20"
-     - "&&"
-     - "echo"
-     - "i am done"
+     - "sleep 20 && echo 'i am done'"
+
      env:
       - name: PORT
         value: "8081"
