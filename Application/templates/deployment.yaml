@@ -6,7 +6,6 @@ metadata:
     {{- include "app.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.deploy.replicas }}
-  restartPolicy: {{ .Values.deploy.restartPolicy }}
   selector:
     matchLabels:
       {{- include "app.selectorLabels" . | nindent 6 }}
@@ -19,6 +18,7 @@ spec:
         checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
       {{- end }}
     spec:
+      restartPolicy: {{ .Values.deploy.restartPolicy }}
 {{- if .Values.deploy.initContainers }}
       initContainers:
         {{- tpl (toYaml .Values.deploy.initContainers) . | nindent 8 }}
