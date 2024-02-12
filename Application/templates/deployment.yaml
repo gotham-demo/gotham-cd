@@ -1,3 +1,4 @@
+{{ if eq .Values.deploy.Pod false}}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -116,3 +117,4 @@ spec:
       {{- tpl (toYaml .Values.deploy.strategy.rollingUpdate) . | nindent 6 }}
     {{- end }}
   revisionHistoryLimit: {{ .Values.deploy.revisionHistoryLimit }}
+{{- end }}

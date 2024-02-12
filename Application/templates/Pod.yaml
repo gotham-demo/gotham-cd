@@ -1,0 +1,104 @@
+{{ if eq .Values.deploy.Pod true }}
+apiVersion: v1
+kind: Pod
+metadata:
+  generateName: batmen-pod-
+  labels:
+    {{- include "app.labels" . | nindent 8 }}
+  {{- if .Values.deploy.applicationProperties.enabled }}
+  annotations:
+    checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+  {{- end }}
+spec:
+  restartPolicy: {{ .Values.deploy.restartPolicy }}
+{{- if .Values.deploy.initContainers }}
+  initContainers:
+    {{- tpl (toYaml .Values.deploy.initContainers) . | nindent 8 }}
+{{- end }}
+  containers:
+    - name: {{ .Values.global.serviceName }}
+      image: '{{ include "app.imageName" . }}'
+      ports:
+{{- range .Values.deploy.ports }}
+        - name: {{ .name }}
+          containerPort: {{ .targetPort }}
+          protocol: {{ .protocol }}
+{{- end }}
+{{- if .Values.deploy.resources }}
+      resources:
+        {{- toYaml .Values.deploy.resources | nindent 12 }}
+{{- end }}
+{{- if .Values.deploy.livenessProbe }}
+      livenessProbe:
+        {{- tpl (toYaml .Values.deploy.livenessProbe) . | nindent 12 }}
+{{- end }}
+{{- if .Values.deploy.readinessProbe }}
+      readinessProbe:
+        {{- tpl (toYaml .Values.deploy.readinessProbe) . | nindent 12 }}
+{{- end }}
+{{- if .Values.deploy.env }}
+      env:
+        {{- tpl (toYaml .Values.deploy.env) . | nindent 12 }}
+{{- end }}
+{{- if .Values.deploy.envFrom }}
+      envFrom:
+        {{- tpl (toYaml .Values.deploy.envFrom) . | nindent 12 }}
+{{- end }}
+      volumeMounts:
+{{- if .Values.deploy.applicationProperties.enabled }}
+        - name: application-properties
+          mountPath: {{ .Values.deploy.applicationProperties.mountPath }}
+{{- end }}
+{{- if .Values.deploy.volumeMounts }}
+        {{- tpl (toYaml .Values.deploy.volumeMounts) . | nindent 12 }}
+{{- end }}
+{{- if .Values.deploy.extraContainers }}
+{{- $imageName := printf "%s:%s" .Values.image.name .Values.image.tag -}}
+{{- range .Values.deploy.extraContainers }}
+    - name: {{ .name }}
+      image: '{{ $imageName }}'
+  {{- if .resources }}
+      resources:
+        {{- toYaml .resources | nindent 12 }}
+  {{- end }}
+    {{- if .env }}
+      env:
+      {{- range .env }}
+      - name: {{ .name }}
+        value: {{ .value | quote }}
+      {{- end }}
+    {{- end }}
+    {{- if .volumeMounts }}
+      volumeMounts:
+      {{- range .volumeMounts }}
+      - name: {{ .name }}
+        mountPath: {{ .mountPath | quote }}
+      {{- end }}
+    {{- end }}
+    {{- if .readinessProbe }}
+      readinessProbe:
+        {{- toYaml .readinessProbe | nindent 12 }}
+    {{- end }}
+    {{- if .livenessProbe }}
+      livenessProbe:
+        {{- toYaml .livenessProbe | nindent 12 }}
+    {{- end }}
+    {{- if .args }}
+      workingDir: {{ .workingDir }}
+      args:
+      {{- range .args }}
+      - {{ . | quote }}
+      {{- end }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+  volumes:
+{{- if .Values.deploy.applicationProperties.enabled }}
+    - name: application-properties
+      configMap:
+        name: '{{ include "app.name" . }}-{{ .Values.global.serviceName }}'
+{{- end }}
+{{- if .Values.deploy.volumes }}
+    {{- tpl (toYaml .Values.deploy.volumes) . | nindent 8 }}
+{{- end }}
+{{- end }}
