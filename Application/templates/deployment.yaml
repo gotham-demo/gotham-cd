@@ -20,7 +20,9 @@ spec:
         checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
       {{- end }}
     spec:
+      {{- if $isValueTrue }}
       restartPolicy: {{ .Values.deploy.restartPolicy }}
+      {{- end }}
 {{- if .Values.deploy.initContainers }}
       initContainers:
         {{- tpl (toYaml .Values.deploy.initContainers) . | nindent 8 }}
