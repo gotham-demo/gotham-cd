@@ -138,13 +138,13 @@ deploy:
         memory: 128Mi
      workingDir: /tmp
      livenessProbe:
-       httpGet:
-         path: /health/liveliness
-         port: 8081
-     readinessProbe:
-       httpGet:
-         path: /health/readiness
-         port: 8081
+    #    httpGet:
+    #      path: /health/liveliness
+    #      port: 8081
+    #  readinessProbe:
+    #    httpGet:
+    #      path: /health/readiness
+    #      port: 8081
      args:
      - sleep
      - "20"
